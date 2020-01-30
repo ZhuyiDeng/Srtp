@@ -196,6 +196,7 @@
     <ClInclude Include="Tip6.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="1.cpp" />
     <ClCompile Include="MfcSrtp.cpp" />
     <ClCompile Include="MfcSrtpDlg.cpp" />
     <ClCompile Include="stdafx.cpp">
