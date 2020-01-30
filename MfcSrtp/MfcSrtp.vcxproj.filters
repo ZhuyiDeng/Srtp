@@ -77,9 +77,6 @@
     <ClCompile Include="Tip6.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="111.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="MfcSrtp.rc">
