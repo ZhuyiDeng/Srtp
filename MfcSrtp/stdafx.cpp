@@ -5,4 +5,9 @@
 
 #include "stdafx.h"
 
-
+CString filePath;
+CString skPath;
+CString mskPath;
+float portion;
+int width;
+int height;

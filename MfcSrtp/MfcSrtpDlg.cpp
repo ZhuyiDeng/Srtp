@@ -6,13 +6,8 @@
 #include "MfcSrtp.h"
 #include "MfcSrtpDlg.h"
 #include "afxdialogex.h"
-#include "Tip1.h"
-#include "Tip2.h"
-#include "Tip3.h"
-#include "Tip4.h"
-#include "Tip5.h"
-#include "Tip6.h"
-
+#include"CTip1.h"
+#include"CSkManageDlg.h"
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
@@ -71,11 +66,13 @@ BEGIN_MESSAGE_MAP(CMfcSrtpDlg, CDialogEx)
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
 	ON_BN_CLICKED(IDC_BUTTON1, &CMfcSrtpDlg::OnBnClickedButton1)
+	ON_BN_CLICKED(IDC_BUTTON2, &CMfcSrtpDlg::OnBnClickedButton2)
 	ON_BN_CLICKED(IDC_BUTTON3, &CMfcSrtpDlg::OnBnClickedButton3)
 	ON_BN_CLICKED(IDC_BUTTON4, &CMfcSrtpDlg::OnBnClickedButton4)
 	ON_BN_CLICKED(IDC_BUTTON5, &CMfcSrtpDlg::OnBnClickedButton5)
 	ON_BN_CLICKED(IDC_BUTTON6, &CMfcSrtpDlg::OnBnClickedButton6)
 	ON_BN_CLICKED(IDC_BUTTON7, &CMfcSrtpDlg::OnBnClickedButton7)
+	ON_BN_CLICKED(IDC_BUTTON8, &CMfcSrtpDlg::OnBnClickedButton8)
 END_MESSAGE_MAP()
 
 
@@ -168,60 +165,51 @@ HCURSOR CMfcSrtpDlg::OnQueryDragIcon()
 // 参数设置的按钮
 void CMfcSrtpDlg::OnBnClickedButton1()
 {
-	//点击按钮弹出参数设置的对话框
-	Tip1 tip1;
-	tip1.DoModal();
+	CTip1 SetDlg;
+	SetDlg.DoModal();
+	// TODO: 在此添加控件通知处理程序代码
+}
+
+// 颜色替换的按钮
+void CMfcSrtpDlg::OnBnClickedButton2()
+{
+	// TODO: 在此添加控件通知处理程序代码
 }
 
 // 效果显示的按钮
 void CMfcSrtpDlg::OnBnClickedButton3()
 {
-	//点击按钮弹出效果显示的对话框
-	Tip3 tip3;
-	tip3.DoModal();
+	// TODO: 在此添加控件通知处理程序代码
 }
 
 // 修改效果图的按钮
 void CMfcSrtpDlg::OnBnClickedButton4()
 {
-	//点击按钮弹出修改效果图的对话框
-	Tip4 tip4;
-	tip4.DoModal();
+	// TODO: 在此添加控件通知处理程序代码
 }
 
 // 马赛克用量的按钮
 void CMfcSrtpDlg::OnBnClickedButton5()
 {
-	//点击按钮弹出马赛克用量的对话框
-	Tip5 tip5;
-	tip5.DoModal();
+	// TODO: 在此添加控件通知处理程序代码
 }
 
 // 安装马赛克的按钮
 void CMfcSrtpDlg::OnBnClickedButton6()
 {
-	//点击按钮弹出安装马赛克的对话框
-	
+	// TODO: 在此添加控件通知处理程序代码
 }
 
 // 色卡管理的按钮
 void CMfcSrtpDlg::OnBnClickedButton7()
 {
-	//点击按钮弹出色卡管理的对话框
-	Tip6 tip6;
-	tip6.DoModal();
+	// TODO: 在此添加控件通知处理程序代码
+	CSkManageDlg dlg;
+	dlg.DoModal();
 }
 
-
-HBRUSH CMfcSrtpDlg::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
+// 系统退出的按钮
+void CMfcSrtpDlg::OnBnClickedButton8()
 {
-	HBRUSH hbr = CDialog::OnCtlColor(pDC, pWnd, nCtlColor);
-
-	// TODO: Change any attributes of the DC here
-	HBRUSH hb = CreateSolidBrush(RGB(250, 255, 240));
-
-	// TODO: Return a different brush if the default is not desired
-	return hb;
+	// TODO: 在此添加控件通知处理程序代码
 }
-
-
