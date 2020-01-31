@@ -30,22 +30,10 @@
     <ClInclude Include="Resource.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Tip1.h">
+    <ClInclude Include="CTip1.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Tip2.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Tip3.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Tip4.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Tip5.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Tip6.h">
+    <ClInclude Include="CSkManageDlg.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -59,22 +47,10 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Tip1.cpp">
+    <ClCompile Include="CTip1.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Tip2.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Tip3.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Tip4.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Tip5.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Tip6.cpp">
+    <ClCompile Include="CSkManageDlg.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
