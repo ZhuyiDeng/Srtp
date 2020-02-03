@@ -184,6 +184,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="CSkManageDlg.h" />
+    <ClInclude Include="CTip1.h" />
     <ClInclude Include="MfcSrtp.h" />
     <ClInclude Include="MfcSrtpDlg.h" />
     <ClInclude Include="Resource.h" />

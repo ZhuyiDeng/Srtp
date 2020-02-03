@@ -9,8 +9,6 @@
 #define IDR_MAINFRAME                   128
 #define IDD_TIP1                        130
 #define IDD_DIALOG_SK_MANAGE            132
-#define IDD_Create                      136
-#define IDD_CREATE                      136
 #define IDC_BUTTON1                     1000
 #define IDC_BUTTON2                     1001
 #define IDC_BUTTON3                     1002
@@ -33,15 +31,14 @@
 #define IDC_BUTTON_SAVE_B               1029
 #define IDC_STATIC_SKP                  1030
 #define IDC_STATIC_SHOW_RGB             1031
-#define IDC_COMBO1_CHOSE                1036
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        138
+#define _APS_NEXT_RESOURCE_VALUE        134
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1039
+#define _APS_NEXT_CONTROL_VALUE         1032
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif
