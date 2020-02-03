@@ -108,6 +108,8 @@ BOOL CTip1::OnInitDialog()
 	CDialogEx::OnInitDialog();
 
 	// TODO:  在此添加额外的初始化
+
+	CenterWindow();//设置窗口居中显示
 	SetDlgItemInt(IDC_EDIT1_PWIDTH,0);
 	SetDlgItemInt(IDC_EDIT1_PHEIGHT, 0);
 	m_msk_size.InsertString(0,_T("8 x 8"));
