@@ -27,4 +27,5 @@ public:
 	afx_msg void OnBnClickedButton1ShowSkb();
 	afx_msg void OnLButtonDown(UINT nFlags, CPoint point);
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
+	afx_msg void OnBnClickedButtonCreateB();
 };

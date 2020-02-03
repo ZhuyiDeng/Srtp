@@ -30,6 +30,7 @@ void CTip1::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_EDIT1_PWIDTH, m_pwidth);
 	DDX_Text(pDX, IDC_EDIT1_PHEIGHT, m_pheight);
 	DDX_Control(pDX, IDC_COMBO1_SIZE, m_msk_size);
+	DDX_Control(pDX, IDC_COMBO1_CHOSE, m_msk_chose);
 }
 
 
@@ -40,7 +41,8 @@ BEGIN_MESSAGE_MAP(CTip1, CDialogEx)
 	ON_BN_CLICKED(IDC_BUTTON2, &CTip1::OnBnClickedButton2)
 	ON_EN_KILLFOCUS(IDC_EDIT1_PWIDTH, &CTip1::OnEnKillfocusEdit1Pwidth)
 	ON_EN_KILLFOCUS(IDC_EDIT1_PHEIGHT, &CTip1::OnEnKillfocusEdit1Pheight)
-//	ON_EN_CHANGE(IDC_EDIT1_PWIDTH, &CTip1::OnEnChangeEdit1Pwidth)
+	ON_BN_CLICKED(IDCANCEL, &CTip1::OnBnClickedCancel)
+	ON_BN_CLICKED(IDOK, &CTip1::OnBnClickedOk)
 END_MESSAGE_MAP()
 
 
@@ -117,6 +119,9 @@ BOOL CTip1::OnInitDialog()
 	m_msk_size.InsertString(2,_T("12 x 12"));
 	m_msk_size.SetCurSel(0);
 	m_flag = 0;
+
+	m_msk_chose.SetCurSel(0);//设置控价默认值
+
 	return TRUE;  // return TRUE unless you set the focus to a control
 				  // 异常: OCX 属性页应返回 FALSE
 }
@@ -161,12 +166,19 @@ void CTip1::OnEnKillfocusEdit1Pheight()
 	SetDlgItemInt(IDC_EDIT1_PWIDTH, width);
 }
 
+void CTip1::OnBnClickedCancel()
+{
+	// TODO: 在此添加控件通知处理程序代码
+	CDialogEx::OnCancel();//关闭当前窗口
+}
 
-//void CTip1::OnEnChangeEdit1Pwidth()
-//{
-//	// TODO:  如果该控件是 RICHEDIT 控件，它将不
-//	// 发送此通知，除非重写 CDialogEx::OnInitDialog()
-//	// 函数并调用 CRichEditCtrl().SetEventMask()，
-//	// 同时将 ENM_CHANGE 标志“或”运算到掩码中。
-//	// TODO:  在此添加控件通知处理程序代码
-//}
+
+void CTip1::OnBnClickedOk()
+{
+	// TODO: 在此添加控件通知处理程序代码
+
+	//点击确定按钮 关闭当前窗口
+	CDialogEx::OnOK();
+
+	
+}

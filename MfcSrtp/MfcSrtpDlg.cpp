@@ -6,8 +6,8 @@
 #include "MfcSrtp.h"
 #include "MfcSrtpDlg.h"
 #include "afxdialogex.h"
-#include"CTip1.h"
-#include"CSkManageDlg.h"
+#include "CTip1.h"
+#include "CSkManageDlg.h"
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
