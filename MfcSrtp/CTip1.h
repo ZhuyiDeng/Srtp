@@ -35,4 +35,5 @@ public:
 	afx_msg void OnEnKillfocusEdit1Pwidth();
 	afx_msg void OnEnKillfocusEdit1Pheight();
 //	afx_msg void OnEnChangeEdit1Pwidth();
+	CComboBox m_msk_choose;
 };

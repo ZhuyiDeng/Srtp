@@ -30,6 +30,7 @@ void CTip1::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_EDIT1_PWIDTH, m_pwidth);
 	DDX_Text(pDX, IDC_EDIT1_PHEIGHT, m_pheight);
 	DDX_Control(pDX, IDC_COMBO1_SIZE, m_msk_size);
+	DDX_Control(pDX, IDC_COMBO1, m_msk_choose);
 }
 
 
@@ -117,6 +118,9 @@ BOOL CTip1::OnInitDialog()
 	m_msk_size.InsertString(2,_T("12 x 12"));
 	m_msk_size.SetCurSel(0);
 	m_flag = 0;
+
+	m_msk_choose.SetCurSel(0);//设置控件默认值
+
 	return TRUE;  // return TRUE unless you set the focus to a control
 				  // 异常: OCX 属性页应返回 FALSE
 }
