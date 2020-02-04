@@ -6,6 +6,7 @@
 #include "CSet.h"
 #include "afxdialogex.h"
 #include "stdafx.h"
+#include "CSet1.h"
 
 
 // CSet 对话框
@@ -38,11 +39,14 @@ END_MESSAGE_MAP()
 
 // CSet 消息处理程序
 
-
-//选择色卡文件
+//引入变量
 extern CString skPath;//文件位置
 extern CString skName;//文件名称
-static int count = 0;//行数
+extern int count = 0;//行数
+extern int i;
+extern CString text;//创建对照表中编辑框内容
+
+//点击 选择色卡文件 按钮
 void CSet::OnBnClickedButton1()
 {
 	// TODO: 在此添加控件通知处理程序代码
@@ -77,15 +81,26 @@ void CSet::OnBnClickedButton1()
 			title.Format(_T("色号序号对照表（共 %d 种颜色）"), count);
 			m_title.SetWindowTextW(title);
 
-			//设置对照表正文
-			for (int i = 0; i < count; i++) {
-
+			//设置 色号序号对照表 正文
+			i = 0;
+			while (i < count) {
 				//类型转换
 				CString list;
 				list.Format(_T("%d"), i + 1);
 
+				//设置 序号 列
 				m_list.InsertItem(i, list);
+
+				//弹出 设置 色号 列 窗口
+				CSet1 Dlg;
+				Dlg.DoModal();
+
+				//设置色号列
+				m_list.SetItemText(i, 1, text);
+
+				i++;
 			}
+			
 		}
 	}
 }
@@ -103,9 +118,11 @@ BOOL CSet::OnInitDialog()
 
 	//设置表头
 	m_list.InsertColumn(0, TEXT("序号"),LVCFMT_LEFT,100);
-	m_list.InsertColumn(1, TEXT("色号"),LVCFMT_LEFT, GetSystemMetrics(SM_CXSCREEN)-100);
+	//m_list.InsertColumn(1, TEXT("色号"), LVCFMT_LEFT, GetSystemMetrics(SM_CXSCREEN) - 100);
+	m_list.InsertColumn(1, TEXT("色号"),LVCFMT_LEFT,350);
 	
 
 	return TRUE;  // return TRUE unless you set the focus to a control
 				  // 异常: OCX 属性页应返回 FALSE
 }
+

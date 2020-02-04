@@ -8,7 +8,10 @@
 CString filePath;
 CString skPath;
 CString mskPath;
-CString skName;
+CString skName;//文件名称
 float portion;
 int width;
 int height;
+static int count;//色卡文件中的行数，即颜色数量
+int i;//色卡文件中的行数标记
+CString text;//创建对照表中编辑框内容

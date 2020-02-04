@@ -184,6 +184,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="CSet.h" />
+    <ClInclude Include="CSet1.h" />
     <ClInclude Include="CSkManageDlg.h" />
     <ClInclude Include="CTip1.h" />
     <ClInclude Include="MfcSrtp.h" />
@@ -195,6 +196,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CSet.cpp" />
+    <ClCompile Include="CSet1.cpp" />
     <ClCompile Include="CSkManageDlg.cpp" />
     <ClCompile Include="CTip1.cpp" />
     <ClCompile Include="MfcSrtp.cpp" />
