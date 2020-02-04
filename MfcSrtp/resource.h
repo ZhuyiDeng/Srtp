@@ -34,6 +34,8 @@
 #define IDC_STATIC_SHOW_RGB             1031
 #define IDC_COMBO1                      1032
 #define IDC_STATIC_SHOW                 1034
+#define IDC_RESERVE                     1035
+#define IDC_LIST1                       1036
 
 // Next default values for new objects
 // 
@@ -41,7 +43,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        139
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1035
+#define _APS_NEXT_CONTROL_VALUE         1037
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif
