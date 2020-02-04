@@ -110,7 +110,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
@@ -183,15 +183,18 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="CSet.h" />
     <ClInclude Include="CSkManageDlg.h" />
     <ClInclude Include="CTip1.h" />
     <ClInclude Include="MfcSrtp.h" />
     <ClInclude Include="MfcSrtpDlg.h" />
+    <ClInclude Include="pch.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CSet.cpp" />
     <ClCompile Include="CSkManageDlg.cpp" />
     <ClCompile Include="CTip1.cpp" />
     <ClCompile Include="MfcSrtp.cpp" />

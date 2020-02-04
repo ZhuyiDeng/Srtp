@@ -8,6 +8,7 @@
 CString filePath;
 CString skPath;
 CString mskPath;
+CString skName;
 float portion;
 int width;
 int height;

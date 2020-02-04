@@ -5,6 +5,7 @@
 #include "MfcSrtp.h"
 #include "CSkManageDlg.h"
 #include "afxdialogex.h"
+#include "CSet.h"
 
 
 // CSkManageDlg 对话框
@@ -32,6 +33,7 @@ BEGIN_MESSAGE_MAP(CSkManageDlg, CDialogEx)
 	ON_BN_CLICKED(IDC_BUTTON1, &CSkManageDlg::OnBnClickedButton1)
 	ON_BN_CLICKED(IDC_BUTTON1_SHOW_SKB, &CSkManageDlg::OnBnClickedButton1ShowSkb)
 	ON_WM_LBUTTONDOWN()
+	ON_BN_CLICKED(IDC_BUTTON_CREATE_B, &CSkManageDlg::OnBnClickedButtonCreateB)
 END_MESSAGE_MAP()
 
 
@@ -128,4 +130,14 @@ BOOL CSkManageDlg::PreTranslateMessage(MSG* pMsg)
 		OnLButtonDown(MK_LBUTTON, pMsg->pt);
 	}
 	return CDialogEx::PreTranslateMessage(pMsg);
+}
+
+
+void CSkManageDlg::OnBnClickedButtonCreateB()
+{
+	// TODO: 在此添加控件通知处理程序代码
+
+	//点击该按钮 弹出 创建色号序号对照表 窗口
+	CSet dlg;
+	dlg.DoModal();
 }

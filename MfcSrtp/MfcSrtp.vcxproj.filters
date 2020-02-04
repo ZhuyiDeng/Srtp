@@ -36,6 +36,12 @@
     <ClInclude Include="CSkManageDlg.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="CSet.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="pch.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MfcSrtp.cpp">
@@ -51,6 +57,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="CSkManageDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CSet.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
