@@ -27,6 +27,7 @@ void CSet::DoDataExchange(CDataExchange* pDX)
 	CDialogEx::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_STATIC_SHOW, m_ShowName);
 	DDX_Control(pDX, IDC_TITLE, m_title);
+	DDX_Control(pDX, IDC_LIST6, m_list);
 }
 
 
@@ -71,11 +72,20 @@ void CSet::OnBnClickedButton1()
 			CString line_count;
 			line_count.Format(L"%d", count);
 
-			//设置标题名称
+			//更新标题名称
 			CString title;
 			title.Format(_T("色号序号对照表（共 %d 种颜色）"), count);
 			m_title.SetWindowTextW(title);
-			//MessageBox(line_count);
+
+			//设置对照表正文
+			for (int i = 0; i < count; i++) {
+
+				//类型转换
+				CString list;
+				list.Format(_T("%d"), i + 1);
+
+				m_list.InsertItem(i, list);
+			}
 		}
 	}
 }
@@ -90,6 +100,10 @@ BOOL CSet::OnInitDialog()
 	
 	//设置默认标题
 	m_title.SetWindowTextW(_T("色号序号对照表"));
+
+	//设置表头
+	m_list.InsertColumn(0, TEXT("序号"),LVCFMT_LEFT,100);
+	m_list.InsertColumn(1, TEXT("色号"),LVCFMT_LEFT, GetSystemMetrics(SM_CXSCREEN)-100);
 	
 
 	return TRUE;  // return TRUE unless you set the focus to a control

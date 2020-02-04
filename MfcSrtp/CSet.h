@@ -25,4 +25,5 @@ public:
 	CStatic m_ShowName;
 	virtual BOOL OnInitDialog();
 	CStatic m_title;
+	CListCtrl m_list;
 };

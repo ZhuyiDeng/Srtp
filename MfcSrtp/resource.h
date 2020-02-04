@@ -37,6 +37,7 @@
 #define IDC_RESERVE                     1035
 #define IDC_COMPARE                     1037
 #define IDC_TITLE                       1038
+#define IDC_LIST6                       1046
 
 // Next default values for new objects
 // 
@@ -44,7 +45,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        139
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1039
+#define _APS_NEXT_CONTROL_VALUE         1047
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif
