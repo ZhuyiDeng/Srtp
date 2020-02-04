@@ -23,4 +23,6 @@ protected:
 public:
 	afx_msg void OnBnClickedButton1();
 	CStatic m_ShowName;
+	virtual BOOL OnInitDialog();
+	CStatic m_title;
 };

@@ -26,6 +26,7 @@ void CSet::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_STATIC_SHOW, m_ShowName);
+	DDX_Control(pDX, IDC_TITLE, m_title);
 }
 
 
@@ -40,6 +41,7 @@ END_MESSAGE_MAP()
 //选择色卡文件
 extern CString skPath;//文件位置
 extern CString skName;//文件名称
+static int count = 0;//行数
 void CSet::OnBnClickedButton1()
 {
 	// TODO: 在此添加控件通知处理程序代码
@@ -57,7 +59,7 @@ void CSet::OnBnClickedButton1()
 			CStdioFile file;
 			CString content;
 			DWORD o = 0;
-			int count = 0;//行数
+
 			file.Open(skPath, CFile::modeRead);
 			o = file.GetPosition();
 			file.Seek(o, 0);
@@ -68,8 +70,28 @@ void CSet::OnBnClickedButton1()
 			//类型转换 int -> CString
 			CString line_count;
 			line_count.Format(L"%d", count);
-			MessageBox(line_count);
+
+			//设置标题名称
+			CString title;
+			title.Format(_T("色号序号对照表（共 %d 种颜色）"), count);
+			m_title.SetWindowTextW(title);
+			//MessageBox(line_count);
 		}
 	}
 }
 
+
+
+BOOL CSet::OnInitDialog()
+{
+	CDialogEx::OnInitDialog();
+
+	// TODO:  在此添加额外的初始化
+	
+	//设置默认标题
+	m_title.SetWindowTextW(_T("色号序号对照表"));
+	
+
+	return TRUE;  // return TRUE unless you set the focus to a control
+				  // 异常: OCX 属性页应返回 FALSE
+}
