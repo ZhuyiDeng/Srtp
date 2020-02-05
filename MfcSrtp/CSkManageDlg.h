@@ -28,4 +28,5 @@ public:
 	afx_msg void OnLButtonDown(UINT nFlags, CPoint point);
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
 	afx_msg void OnBnClickedButtonCreateB();
+	afx_msg void OnBnClickedCancel();
 };

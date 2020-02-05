@@ -34,6 +34,7 @@ BEGIN_MESSAGE_MAP(CSkManageDlg, CDialogEx)
 	ON_BN_CLICKED(IDC_BUTTON1_SHOW_SKB, &CSkManageDlg::OnBnClickedButton1ShowSkb)
 	ON_WM_LBUTTONDOWN()
 	ON_BN_CLICKED(IDC_BUTTON_CREATE_B, &CSkManageDlg::OnBnClickedButtonCreateB)
+	ON_BN_CLICKED(IDCANCEL, &CSkManageDlg::OnBnClickedCancel)
 END_MESSAGE_MAP()
 
 
@@ -161,4 +162,11 @@ void CSkManageDlg::OnBnClickedButtonCreateB()
 	//点击该按钮 弹出 创建色号序号对照表 窗口
 	CSet dlg;
 	dlg.DoModal();
+}
+
+
+void CSkManageDlg::OnBnClickedCancel()
+{
+	// TODO: 在此添加控件通知处理程序代码
+	CDialogEx::OnCancel();
 }
