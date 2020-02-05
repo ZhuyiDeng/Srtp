@@ -6,6 +6,7 @@
 #include "CSkManageDlg.h"
 #include "afxdialogex.h"
 #include "CSet.h"
+#include <locale>
 
 
 // CSkManageDlg 对话框
@@ -169,7 +170,35 @@ void CSkManageDlg::OnBnClickedButton1ShowSkb()
 {
 	// TODO: 在此添加控件通知处理程序代码
 
+	CFileDialog fDlg(FALSE, _T(".txt"), _T("RGB表"), OFN_OVERWRITEPROMPT, _T("文本文档(*.txt)|*.txt|保存的数据(*.dat)|*.dat|所有文件(*.*)|*.*||"), NULL);
 
+	//使中文数据可以写入文件
+	CFileException pError;
+	setlocale(LC_CTYPE, ("chs"));
+
+	if (fDlg.DoModal() == IDOK) {//保证点击了确定按钮，获取到正确的文件路径
+
+		//创建文件对象
+		CString sPath = fDlg.GetPathName();
+		CStdioFile file(sPath, CFile::modeWrite | CFile::modeCreate);
+		CString cs;
+		cs = "序号\tR\tG\tB\n";
+
+		file.WriteString(cs);
+
+		for (int j = 0; j < m_rgb_list.GetItemCount(); j++) {
+			cs = m_rgb_list.GetItemText(j, 0) + _T("\t");
+			cs += m_rgb_list.GetItemText(j, 1) + _T("\t");
+			cs += m_rgb_list.GetItemText(j, 2) + _T("\t");
+			cs += m_rgb_list.GetItemText(j, 3) + _T("\n");
+
+			file.WriteString(cs);
+		}
+
+		//关闭文件
+		file.Close();
+
+	}
 }
 
 

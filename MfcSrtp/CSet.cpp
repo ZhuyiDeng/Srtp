@@ -161,6 +161,5 @@ void CSet::OnBnClickedReserve()
 		file.Close();
 
 	}
-
 }
 
