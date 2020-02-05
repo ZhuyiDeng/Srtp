@@ -26,4 +26,5 @@ public:
 	virtual BOOL OnInitDialog();
 	CStatic m_title;
 	CListCtrl m_list;
+	afx_msg void OnBnClickedReserve();
 };

@@ -50,7 +50,6 @@ BOOL CSet1::OnInitDialog()
 	// TODO:  在此添加额外的初始化
 
 	//设置提示内容
-
 	CString tip;
 	tip.Format(_T("请输入序号 %d 对应的色号"), i+1);
 	m_tip.SetWindowTextW(tip);
