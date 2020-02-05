@@ -83,6 +83,9 @@ void CSkManageDlg::OnBnClickedButtonPickSkp()
 }
 
 
+int r, g, b;
+int j = -1;
+
 void CSkManageDlg::OnLButtonDown(UINT nFlags, CPoint point)
 {
 	// TODO: 在此添加消息处理程序代码和/或调用默认值
@@ -106,16 +109,44 @@ void CSkManageDlg::OnLButtonDown(UINT nFlags, CPoint point)
 		str.Format(_T("%d"), B);
 		rgb += _T("B: ") + str + _T("\n");
 		SetDlgItemText(IDC_STATIC_SHOW_RGB, rgb);
+
+		//选取五个点计算该色卡的RGB值
+		j++;
+		if (j < 5) {
+			r += R;
+			g += G;
+			b += B;
+		}
+
 		CDialogEx::OnLButtonDown(nFlags, point);
 	}
 }
 
 
-//点击 开始选取素材点 按钮
+//点击 生成色卡RGB值 按钮
 void CSkManageDlg::OnBnClickedButton1()
 {
 	// TODO: 在此添加控件通知处理程序代码
-	MessageBox(_T("请从右图中点击对应色块"));
+	//MessageBox(_T("请从右图中点击对应色块"));
+	
+	//初始化数据
+	j = -1;
+	r = 0;
+	g = 0;
+	b = 0;
+
+	//计算5个点的RGB平均值
+	r /= 5;
+	g /= 5;
+	b /= 5;
+	CString rr,gg,bb;
+	rr.Format(_T("%d"), r);
+	gg.Format(_T("%d"), g);
+	bb.Format(_T("%d"), b);
+	MessageBox(rr);
+
+
+	
 }
 
 
