@@ -83,40 +83,6 @@ void CSkManageDlg::OnBnClickedButtonPickSkp()
 }
 
 
-void CSkManageDlg::OnBnClickedButton1()
-{
-	// TODO: 在此添加控件通知处理程序代码
-	MessageBox(_T("请从右图中点击对应色块"));
-}
-
-
-//点击 显示色卡RGB表 按钮
-
-extern CString skName;
-void CSkManageDlg::OnBnClickedButton1ShowSkb()
-{
-	// TODO: 在此添加控件通知处理程序代码
-
-	/*
-	CFileDialog fDlg(TRUE, _T(".txt"), skName, OFN_OVERWRITEPROMPT, _T("文本文档(*.txt)|*.txt|保存的数据(*.dat)|*.dat|所有文件(*.*)|*.*||"), NULL);
-
-	if (fDlg.DoModal() == IDOK) {
-		CStdioFile file(fDlg.GetPathName(), CFile::modeRead);
-
-		CString cs;
-		while (file.ReadString(cs))
-		{
-			
-			cs.Format(cs);
-			m_rgblist.SetWindowTextW(cs);
-		}
-
-	}
-	*/
-}
-
-
-
 void CSkManageDlg::OnLButtonDown(UINT nFlags, CPoint point)
 {
 	// TODO: 在此添加消息处理程序代码和/或调用默认值
@@ -126,21 +92,39 @@ void CSkManageDlg::OnLButtonDown(UINT nFlags, CPoint point)
 	{
 		point.x -= rect.left;
 		point.y -= rect.top;
+
+		CClientDC dc(this);
+		COLORREF color = dc.GetPixel(point);
+		int R = GetRValue(color);
+		int G = GetGValue(color);
+		int B = GetBValue(color);
+		CString rgb, str;
+		str.Format(_T("%d"), R);
+		rgb += _T("R: ") + str + _T("  ");
+		str.Format(_T("%d"), G);
+		rgb += _T("G: ") + str + _T("  ");
+		str.Format(_T("%d"), B);
+		rgb += _T("B: ") + str + _T("\n");
+		SetDlgItemText(IDC_STATIC_SHOW_RGB, rgb);
+		CDialogEx::OnLButtonDown(nFlags, point);
 	}
-	CClientDC dc(this);
-	COLORREF color = dc.GetPixel(point);
-	int R = GetRValue(color); 
-	int G = GetGValue(color);
-	int B = GetBValue(color);
-	CString rgb,str;
-	str.Format(_T("%d"), R);
-	rgb +=_T("R: ")+str+_T("  ");
-	str.Format(_T("%d"), G);
-	rgb += _T("G: ") + str + _T("  ");
-	str.Format(_T("%d"), B);
-	rgb += _T("B: ") + str+_T("\n");
-	SetDlgItemText(IDC_STATIC_SHOW_RGB, rgb);
-	CDialogEx::OnLButtonDown(nFlags, point);
+}
+
+
+//点击 开始选取素材点 按钮
+void CSkManageDlg::OnBnClickedButton1()
+{
+	// TODO: 在此添加控件通知处理程序代码
+	MessageBox(_T("请从右图中点击对应色块"));
+}
+
+
+//点击 显示色卡RGB表 按钮
+void CSkManageDlg::OnBnClickedButton1ShowSkb()
+{
+	// TODO: 在此添加控件通知处理程序代码
+
+
 }
 
 
@@ -155,6 +139,7 @@ BOOL CSkManageDlg::PreTranslateMessage(MSG* pMsg)
 }
 
 
+//点击 创建色号序号对照表 按钮
 void CSkManageDlg::OnBnClickedButtonCreateB()
 {
 	// TODO: 在此添加控件通知处理程序代码
@@ -165,6 +150,7 @@ void CSkManageDlg::OnBnClickedButtonCreateB()
 }
 
 
+//点击 返回 按钮
 void CSkManageDlg::OnBnClickedCancel()
 {
 	// TODO: 在此添加控件通知处理程序代码
