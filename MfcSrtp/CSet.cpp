@@ -101,10 +101,8 @@ void CSet::OnBnClickedButton1()
 				//设置色号列
 				m_list.SetItemText(i, 1, text);
 
-
 				i++;
-			}
-			
+			}			
 		}
 	}
 }

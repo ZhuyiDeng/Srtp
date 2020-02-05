@@ -25,6 +25,7 @@ CSkManageDlg::~CSkManageDlg()
 void CSkManageDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
+	DDX_Control(pDX, IDC_LIST_RGB, m_rgb_list);
 }
 
 
@@ -83,8 +84,12 @@ void CSkManageDlg::OnBnClickedButtonPickSkp()
 }
 
 
+//在同一个马赛克块中点击不同的几个点，再点击 生成马赛克块RGB值 按钮
+//即可生成该马赛克块的RGB值（选取的几个点的RGB值的平均值）
+//重复上述过程即可生成所有马赛克块的RGB值
+
 int r, g, b;
-int j = -1;
+int j = 0;
 
 void CSkManageDlg::OnLButtonDown(UINT nFlags, CPoint point)
 {
@@ -112,45 +117,54 @@ void CSkManageDlg::OnLButtonDown(UINT nFlags, CPoint point)
 
 		//选取五个点计算该色卡的RGB值
 		j++;
-		if (j < 5) {
-			r += R;
-			g += G;
-			b += B;
-		}
+		r += R;
+		g += G;
+		b += B;
 
 		CDialogEx::OnLButtonDown(nFlags, point);
 	}
 }
 
-
-//点击 生成色卡RGB值 按钮
+int k = 0;
+//点击 生成马赛克块RGB值 按钮
 void CSkManageDlg::OnBnClickedButton1()
 {
 	// TODO: 在此添加控件通知处理程序代码
 	//MessageBox(_T("请从右图中点击对应色块"));
-	
-	//初始化数据
-	j = -1;
-	r = 0;
-	g = 0;
-	b = 0;
 
-	//计算5个点的RGB平均值
-	r /= 5;
-	g /= 5;
-	b /= 5;
+	//计算几个点的RGB平均值
+	r /= j;
+	g /= j;
+	b /= j;
 	CString rr,gg,bb;
 	rr.Format(_T("%d"), r);
 	gg.Format(_T("%d"), g);
 	bb.Format(_T("%d"), b);
-	MessageBox(rr);
 
+	//设置 RGB表 正文
+	//类型转换
+	CString index;
+	index.Format(_T("%d"), k + 1);
 
-	
+	//设置 序号 列
+	m_rgb_list.InsertItem(k, index);
+
+	//设置 R G B 列
+	m_rgb_list.SetItemText(k, 1, rr);
+	m_rgb_list.SetItemText(k, 2, gg);
+	m_rgb_list.SetItemText(k, 3, bb);
+
+	k++;
+
+	//恢复初始值
+	j = 0;
+	r = 0;
+	g = 0;
+	b = 0;
 }
 
 
-//点击 显示色卡RGB表 按钮
+//点击 保存色卡RGB表 按钮
 void CSkManageDlg::OnBnClickedButton1ShowSkb()
 {
 	// TODO: 在此添加控件通知处理程序代码
@@ -186,4 +200,27 @@ void CSkManageDlg::OnBnClickedCancel()
 {
 	// TODO: 在此添加控件通知处理程序代码
 	CDialogEx::OnCancel();
+}
+
+
+BOOL CSkManageDlg::OnInitDialog()
+{
+	CDialogEx::OnInitDialog();
+
+	// TODO:  在此添加额外的初始化
+	
+	//设置默认标题
+	CString cs;
+	cs = _T("RGB表\n\n");
+	SetDlgItemText(IDC_STATIC_RGB, cs);
+
+	//设置表头
+	m_rgb_list.InsertColumn(0, TEXT("序号"), LVCFMT_LEFT, 60);
+	m_rgb_list.InsertColumn(1, TEXT("B"), LVCFMT_LEFT, 85);
+	m_rgb_list.InsertColumn(1, TEXT("G"), LVCFMT_LEFT, 85);
+	m_rgb_list.InsertColumn(1, TEXT("R"), LVCFMT_LEFT, 85);
+
+
+	return TRUE;  // return TRUE unless you set the focus to a control
+				  // 异常: OCX 属性页应返回 FALSE
 }

@@ -29,4 +29,6 @@ public:
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
 	afx_msg void OnBnClickedButtonCreateB();
 	afx_msg void OnBnClickedCancel();
+	virtual BOOL OnInitDialog();
+	CListCtrl m_rgb_list;
 };
