@@ -89,10 +89,31 @@ void CSkManageDlg::OnBnClickedButton1()
 }
 
 
+//点击 显示色卡RGB表 按钮
+
+extern CString skName;
 void CSkManageDlg::OnBnClickedButton1ShowSkb()
 {
 	// TODO: 在此添加控件通知处理程序代码
+
+	/*
+	CFileDialog fDlg(TRUE, _T(".txt"), skName, OFN_OVERWRITEPROMPT, _T("文本文档(*.txt)|*.txt|保存的数据(*.dat)|*.dat|所有文件(*.*)|*.*||"), NULL);
+
+	if (fDlg.DoModal() == IDOK) {
+		CStdioFile file(fDlg.GetPathName(), CFile::modeRead);
+
+		CString cs;
+		while (file.ReadString(cs))
+		{
+			
+			cs.Format(cs);
+			m_rgblist.SetWindowTextW(cs);
+		}
+
+	}
+	*/
 }
+
 
 
 void CSkManageDlg::OnLButtonDown(UINT nFlags, CPoint point)
