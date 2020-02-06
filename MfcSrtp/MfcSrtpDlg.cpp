@@ -6,8 +6,10 @@
 #include "MfcSrtp.h"
 #include "MfcSrtpDlg.h"
 #include "afxdialogex.h"
-#include"CTip1.h"
-#include"CSkManageDlg.h"
+#include "CTip1.h"
+#include "CSkManageDlg.h"
+#include "CInstall.h"
+
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
@@ -198,6 +200,11 @@ void CMfcSrtpDlg::OnBnClickedButton5()
 void CMfcSrtpDlg::OnBnClickedButton6()
 {
 	// TODO: 在此添加控件通知处理程序代码
+
+	//弹出 安装马赛克 窗口
+	CInstall dlg;
+	dlg.DoModal();
+
 }
 
 // 色卡管理的按钮

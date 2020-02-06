@@ -11,6 +11,7 @@
 #define IDD_DIALOG_SK_MANAGE            132
 #define IDD_DIALOG_SET                  137
 #define IDD_DIALOG_SET1                 139
+#define IDD_INSTALL                     141
 #define IDC_BUTTON1                     1000
 #define IDC_BUTTON2                     1001
 #define IDC_BUTTON3                     1002
@@ -44,15 +45,36 @@
 #define IDC_LIST1                       1050
 #define IDC_LIST_RGB                    1052
 #define IDC_STATIC_RGB                  1053
-#define IDC_RGB                         1054
+#define IDC_INSTALL_TIP1                1055
+#define IDC_INSTALL_A                   1056
+#define IDC_TEXT_A1                     1057
+#define IDC_TEXT_A2                     1058
+#define IDC_TEXT_A3                     1059
+#define IDC_TEXT_A4                     1060
+#define IDC_EDIT_A1                     1061
+#define IDC_EDIT_A2                     1062
+#define IDC_EDIT_A3                     1063
+#define IDC_EDIT_A4                     1064
+#define IDC_INSTALL_TIP2                1065
+#define IDC_INSTALL_A2                  1066
+#define IDC_TEXT_B1                     1067
+#define IDC_TEXT_B2                     1068
+#define IDC_TEXT_B3                     1069
+#define IDC_TEXT_B4                     1070
+#define IDC_EDIT_B1                     1071
+#define IDC_EDIT_B2                     1072
+#define IDC_EDIT_B3                     1073
+#define IDC_EDIT_B4                     1074
+#define IDC_CONTINUE1                   1075
+#define IDC_CONTINUE2                   1076
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        141
+#define _APS_NEXT_RESOURCE_VALUE        143
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1055
+#define _APS_NEXT_CONTROL_VALUE         1077
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

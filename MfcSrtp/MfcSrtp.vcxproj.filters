@@ -45,6 +45,9 @@
     <ClInclude Include="CSet1.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="CInstall.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MfcSrtp.cpp">
@@ -66,6 +69,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="CSet1.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CInstall.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
