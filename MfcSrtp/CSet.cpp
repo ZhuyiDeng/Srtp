@@ -91,10 +91,10 @@ void CSet::OnBnClickedButton1()
 				CString list;
 				list.Format(_T("%d"), i + 1);
 
-				//设置 序号 列
+				//设置序号列
 				m_list.InsertItem(i, list);
 
-				//弹出 设置 色号 列 窗口
+				//弹出 设置色号列 窗口
 				CSet1 Dlg;
 				Dlg.DoModal();
 

@@ -6,7 +6,7 @@
 #include "CInstallTip.h"
 #include "afxdialogex.h"
 #include "stdafx.h"
-#include "CInstallTip.h"
+#include"CInstall.h"
 
 
 // CInstallTip 对话框
@@ -26,6 +26,7 @@ CInstallTip::~CInstallTip()
 void CInstallTip::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
+	DDX_Control(pDX, IDC_TIP, m_install_tip);
 	DDX_Control(pDX, IDC_TIP, m_install_tip);
 }
 
@@ -80,8 +81,11 @@ BOOL CInstallTip::PreTranslateMessage(MSG* pMsg)
 }
 
 
-int tip_index = 0;
+
 //按下 是 按钮
+int tip_index = 0;//区分左边和右边的安装界面
+extern CInstall* pDlg;
+
 void CInstallTip::OnBnClickedButton1()
 {
 	// TODO: 在此添加控件通知处理程序代码
@@ -91,12 +95,15 @@ void CInstallTip::OnBnClickedButton1()
 	if (tip_index == 1) {//第一次按
 
 		//显示联号
+		pDlg->SetDlgItemTextW(IDC_EDIT_A1, _T("(1,1)"));
 
 		//显示色号
 
 		//显示颜色
 
 		//显示数量
+
+		//需要马赛克块处增亮处理
 
 		//更改提示信息
 		m_install_tip.SetWindowTextW(_T("(1,2) 联马赛克准备好了吗？\n准备好了请按回车键或'是'继续"));
@@ -105,6 +112,7 @@ void CInstallTip::OnBnClickedButton1()
 	else if (tip_index == 2) {//第二次按
 
 		//显示联号
+		pDlg->SetDlgItemTextW(IDC_EDIT_B1, _T("(1,2)"));
 
 		//显示色号
 
@@ -112,8 +120,9 @@ void CInstallTip::OnBnClickedButton1()
 
 		//显示数量
 
+		//需要马赛克块处增亮处理
+
 		//关闭当前窗口
 		CDialog::OnCancel();
-
 	}
 }

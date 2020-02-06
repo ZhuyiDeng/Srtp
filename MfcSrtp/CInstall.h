@@ -26,4 +26,7 @@ public:
 	CStatic m_install_tip2;
 	afx_msg void OnBnClickedButton3();
 	afx_msg void OnBnClickedButton1();
+	CEdit m_text_a1;
+	afx_msg void OnBnClickedContinue1();
+	afx_msg void OnBnClickedContinue2();
 };

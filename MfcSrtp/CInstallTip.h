@@ -21,9 +21,9 @@ protected:
 
 	DECLARE_MESSAGE_MAP()
 public:
-	CStatic m_install_tip;
 	virtual BOOL OnInitDialog();
 	afx_msg void OnBnClickedButton2();
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
 	afx_msg void OnBnClickedButton1();
+	CStatic m_install_tip;
 };
