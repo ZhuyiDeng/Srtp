@@ -74,7 +74,8 @@ void CInstall1::OnBnClickedButton1()
 	CInstallTip Dlg;
 	Dlg.DoModal();
 
-
+	//关闭当前窗口
+	CDialog::OnCancel();
 	
 }
 
