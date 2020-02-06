@@ -12,6 +12,8 @@
 #define IDD_DIALOG_SET                  137
 #define IDD_DIALOG_SET1                 139
 #define IDD_INSTALL                     141
+#define IDD_INSTALL1                    143
+#define IDD_INSTALL_TIP                 145
 #define IDC_BUTTON1                     1000
 #define IDC_BUTTON2                     1001
 #define IDC_BUTTON3                     1002
@@ -72,7 +74,7 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        143
+#define _APS_NEXT_RESOURCE_VALUE        147
 #define _APS_NEXT_COMMAND_VALUE         32771
 #define _APS_NEXT_CONTROL_VALUE         1077
 #define _APS_NEXT_SYMED_VALUE           101

@@ -6,6 +6,7 @@
 #include "CInstall.h"
 #include "afxdialogex.h"
 #include "stdafx.h"
+#include "CInstall1.h"
 
 
 // CInstall 对话框
@@ -31,6 +32,8 @@ void CInstall::DoDataExchange(CDataExchange* pDX)
 
 
 BEGIN_MESSAGE_MAP(CInstall, CDialogEx)
+	ON_BN_CLICKED(IDC_BUTTON3, &CInstall::OnBnClickedButton3)
+	ON_BN_CLICKED(IDC_BUTTON1, &CInstall::OnBnClickedButton1)
 END_MESSAGE_MAP()
 
 
@@ -50,4 +53,27 @@ BOOL CInstall::OnInitDialog()
 
 	return TRUE;  // return TRUE unless you set the focus to a control
 				  // 异常: OCX 属性页应返回 FALSE
+}
+
+
+//点击 返回  按钮
+void CInstall::OnBnClickedButton3()
+{
+	// TODO: 在此添加控件通知处理程序代码
+
+	//关闭当前窗口
+	CDialog::OnCancel();
+}
+
+
+//点击 开始安装 按钮
+void CInstall::OnBnClickedButton1()
+{
+	// TODO: 在此添加控件通知处理程序代码
+
+	//弹出 安装马赛克 窗口
+	CInstall1 Dlg;
+	Dlg.DoModal();
+
+
 }

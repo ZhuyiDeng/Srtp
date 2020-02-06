@@ -24,4 +24,6 @@ public:
 	virtual BOOL OnInitDialog();
 	CStatic m_install_tip1;
 	CStatic m_install_tip2;
+	afx_msg void OnBnClickedButton3();
+	afx_msg void OnBnClickedButton1();
 };
