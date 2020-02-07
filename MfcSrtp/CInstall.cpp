@@ -34,6 +34,7 @@ void CInstall::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_INSTALL_TIP1, m_install_tip1);
 	DDX_Control(pDX, IDC_INSTALL_TIP2, m_install_tip2);
 	DDX_Control(pDX, IDC_EDIT_A1, m_text_a1);
+	DDX_Control(pDX, IDC_INSTALL_LIST1, m_install_list1);
 }
 
 
@@ -59,6 +60,25 @@ BOOL CInstall::OnInitDialog()
 	m_install_tip2.SetWindowTextW(_T("请将栅格板放在黑色安装区域位置"));
 
 	pDlg = this;//初始化该全局变量
+
+	DWORD   dwStyle;
+	dwStyle = m_install_list1.GetExtendedStyle();
+	dwStyle |= LVS_EX_FULLROWSELECT;
+	dwStyle |= LVS_EX_GRIDLINES;
+	m_install_list1.SetExtendedStyle(dwStyle);
+
+	m_install_list1.InsertColumn(0, L" ", LVCFMT_LEFT, 20);
+	m_install_list1.InsertColumn(1, L" ", LVCFMT_LEFT, 20);
+	m_install_list1.InsertColumn(2, L" ", LVCFMT_LEFT, 20);
+	m_install_list1.InsertItem(0, L" ");
+	m_install_list1.SetItemText(0, 1, L" ");
+	m_install_list1.SetItemText(0, 2, L" ");
+	m_install_list1.InsertItem(1, L" ");
+	m_install_list1.SetItemText(1, 1, L" ");
+	m_install_list1.SetItemText(1, 2, L" ");
+	
+	m_install_list1.SetTextBkColor(RGB(255, 255, 0));
+	m_install_list1.SetBkColor(RGB(0, 0, 0));
 
 	return TRUE;  // return TRUE unless you set the focus to a control
 				  // 异常: OCX 属性页应返回 FALSE

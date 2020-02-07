@@ -69,6 +69,8 @@
 #define IDC_EDIT_B4                     1074
 #define IDC_CONTINUE1                   1075
 #define IDC_CONTINUE2                   1076
+#define IDC_INSTALL_LIST                1077
+#define IDC_INSTALL_LIST1               1077
 
 // Next default values for new objects
 // 
@@ -76,7 +78,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        147
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1077
+#define _APS_NEXT_CONTROL_VALUE         1078
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif
