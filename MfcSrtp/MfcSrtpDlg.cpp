@@ -14,6 +14,34 @@
 #define new DEBUG_NEW
 #endif
 
+#include<fstream>
+#include <string>
+using namespace std;
+
+// 从路径提取名字要用的两个函数
+void string_replace(string& strBig, const string& strsrc, const string& strdst)
+{
+	string::size_type pos = 0;
+	string::size_type srclen = strsrc.size();
+	string::size_type dstlen = strdst.size();
+
+	while ((pos = strBig.find(strsrc, pos)) != string::npos)
+	{
+		strBig.replace(pos, srclen, strdst);
+		pos += dstlen;
+	}
+}
+
+string GetPathOrURLShortName(string strFullName)
+{
+	if (strFullName.empty()) {
+		return "";
+	}
+	string_replace(strFullName, "/", "\\");
+	string::size_type iPos = strFullName.find_last_of('\\') + 1;
+	return strFullName.substr(iPos, strFullName.length() - iPos);
+}
+
 
 // 用于应用程序“关于”菜单项的 CAboutDlg 对话框
 
@@ -176,6 +204,74 @@ void CMfcSrtpDlg::OnBnClickedButton1()
 void CMfcSrtpDlg::OnBnClickedButton2()
 {
 	// TODO: 在此添加控件通知处理程序代码
+
+	trans(filePath, filePathNew, colorPath, cx, cy, val);
+}
+
+void CMfcSrtpDlg::trans(const CString filePath, CString filePathNew, CString colorPath, int picx, int picy, int val) {
+	// 读取色卡rgb数组
+	// 定义用于存放rgb数据的矩阵
+	int color[999][4] = { 0 };
+	int colorNew[999][3] = { };
+	ifstream infile;
+	//定义读取文件流，相对于程序来说是in
+	infile.open(colorPath);
+	// 打开文件
+	int* ptr = &color[0][0];
+	// 循环
+	while (!infile.eof()) {
+		infile >> *ptr;//这个是把文档里面的数对应在ptr位置的数值上
+		ptr++;
+	}
+	// 读取完成之后关闭文件
+	infile.close();
+
+	// 用来计数得到的rgb数组有多少个数字，/3就是它的行数，便于循环
+	int allNum = 0;
+
+
+	// 将得到的rgb数组存放在文件夹里
+	// 将cstring转换为string
+	string fileNamePath;
+	// 将路径转化为string格式
+	fileNamePath = CT2A(filePath.GetString());
+	// 从路径中获取选择的图片的名字
+	string filePathName = GetPathOrURLShortName(fileNamePath);
+	int k = filePathName.length() - 1;
+	while (TRUE)
+	{
+		if (filePathName[k] == '.') {
+			filePathName.erase(k);
+			break;
+		}
+		filePathName.erase(k);
+		k--;
+	}
+	// string->char*
+	char filePathNameChar[100];
+	int i;
+	int size = filePathName.length();
+	for (i = 0; i < size; i++) filePathNameChar[i] = filePathName[i];
+	filePathNameChar[i] = '\0';
+	// 将获取到的图片的名字加入进将要存放的路径字符串中
+	sprintf_s(filePathNewStrArrange, "C:\\Users\\anyi\\Documents\\mfc\\%s.txt", filePathNameChar);
+	// 把字符数组转换为string
+	string filePathNewStr = filePathNewStrArrange;
+	// string转换为cstring
+	filePathNew = CA2T(filePathNewStr.c_str());
+
+	// 存储得到的rgb文件
+	ofstream outfile(filePathNewStr);
+	outfile.open(filePathNewStr, ios::out | ios::app);
+	if (!outfile.is_open())    return;
+	// 如果创建成功
+	for (int i = 0; i < allNum / 3; i++) {
+		for (int j = 0; j < 3; j++) {
+			outfile << colorNew[i][j] << " ";
+		}
+		outfile << endl;
+	}
+	outfile.close();
 }
 
 // 效果显示的按钮

@@ -1,6 +1,7 @@
 ﻿
 // MfcSrtpDlg.h: 头文件
 //
+#include <string>
 
 #pragma once
 
@@ -40,4 +41,19 @@ public:
 	afx_msg void OnBnClickedButton6();
 	afx_msg void OnBnClickedButton7();
 	afx_msg void OnBnClickedButton8();
+
+public:
+	// filePath 原图路径 filePathNew 生成rgb路径 colorPath 色卡路径
+	// picx 产品宽度尺寸 picy 产品高度尺寸 val 马赛克块尺寸
+	void trans(const CString filePath, CString filePathNew, CString colorPath, int picx, int picy, int val);
+	
+	// 这里是需要更改的：
+	const CString filePath = _T("C:\\Users\\anyi\\Documents\\mfc\\test.jpg");
+	CString colorPath = _T("C:\\Users\\anyi\\Documents\\mfc\\testTxt.txt");
+	char filePathNewStrArrange[100];
+	CString filePathNew = _T("C:\\Users\\anyi\\Documents\\mfc\\%s.txt");
+	int cx = 500;
+	int cy = 510;
+	// 马赛克块的大小
+	int val = 8;
 };

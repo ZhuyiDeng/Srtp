@@ -6,7 +6,6 @@
 #include "CTip1.h"
 #include "afxdialogex.h"
 
-
 // CTip1 对话框
 
 IMPLEMENT_DYNAMIC(CTip1, CDialogEx)
