@@ -1,4 +1,5 @@
 ﻿// CInstall1.cpp: 实现文件
+//输入效果图版本号的提示窗口
 //
 
 #include "pch.h"
