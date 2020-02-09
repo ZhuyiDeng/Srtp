@@ -29,4 +29,6 @@ public:
 	CEdit m_text_a1;
 	afx_msg void OnBnClickedContinue1();
 	afx_msg void OnBnClickedContinue2();
+	CStatic m_pic;
+	afx_msg void OnPaint();
 };
