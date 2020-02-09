@@ -29,5 +29,4 @@ public:
 	CEdit m_text_a1;
 	afx_msg void OnBnClickedContinue1();
 	afx_msg void OnBnClickedContinue2();
-	CListCtrl m_install_list1;
 };
