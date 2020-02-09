@@ -184,7 +184,8 @@ void CInstall::OnPaint()
 	// 选择新画刷，并将旧画刷的指针保存到pOldBrush   
 	pOldBrush = pDC.SelectObject(&newBrush);
 
-	pDC.Rectangle(rectPicture.left, rectPicture.left, rectPicture.left + (x / 12), rectPicture.top + (y / 12));
+	pDC.Rectangle(rectPicture.left, rectPicture.top, rectPicture.left + (x / 12), rectPicture.top + (y / 12));
+//	pDC.Rectangle(0,0,20,20);
 
 	// 恢复旧画刷   
 	pDC.SelectObject(pOldBrush);
