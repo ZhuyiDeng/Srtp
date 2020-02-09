@@ -135,32 +135,32 @@ void CInstall::OnBnClickedContinue2()
 
 void CInstall::OnPaint()
 {
-	CPen newPen;       // 鐢ㄤ簬鍒涘缓鏂扮敾绗?  
-	CPen* pOldPen;     // 鐢ㄤ簬瀛樻斁鏃х敾绗?  
-	CBrush newBrush;   // 鐢ㄤ簬鍒涘缓鏂扮敾鍒?  
-	CBrush* pOldBrush; // 鐢ㄤ簬瀛樻斁鏃х敾鍒?  
+	CPen newPen;       // 用于创建新画笔   
+	CPen* pOldPen;     // 用于存放旧画笔   
+	CBrush newBrush;   // 用于创建新画刷   
+	CBrush* pOldBrush; // 用于存放旧画刷   
 
-	CRect rectPicture;  // 鍥剧墖鎺т欢鐨勭煩褰㈠尯鍩熷潗鏍?
-	// 鑾峰彇鍥剧墖鎺т欢鐭╁舰鍖哄煙鐨勫睆骞曞潗鏍?  
+	CRect rectPicture;  // 图片控件的矩形区域坐标 
+	// 获取图片控件矩形区域的屏幕坐标   
 	m_pic.GetWindowRect(&rectPicture);
-	// 灏嗗浘鐗囨帶浠剁煩褰㈠尯鍩熺殑灞忓箷鍧愭爣杞崲涓哄叾鐖剁獥鍙ｅ嵆瀵硅瘽妗嗙殑瀹㈡埛鍖哄潗鏍?  
+	// 将图片控件矩形区域的屏幕坐标转换为其父窗口即对话框的客户区坐标   
 	ScreenToClient(&rectPicture);
 
-	// 鍒涘缓榛戣壊鏂扮敾鍒?  
+	// 创建黑色新画刷   
 	newBrush.CreateSolidBrush(RGB(0, 0, 0));
-	CPaintDC pDC(this); // 鐢ㄤ簬缁樺埗鐨勮澶囦笂涓嬫枃
-	// 閫夋嫨鏂扮敾鍒凤紝骞跺皢鏃х敾鍒风殑鎸囬拡淇濆瓨鍒皃OldBrush   
+	CPaintDC pDC(this); // 用于绘制的设备上下文
+	// 选择新画刷，并将旧画刷的指针保存到pOldBrush   
 	pOldBrush = pDC.SelectObject(&newBrush);
-	// 浠ラ粦鑹茬敾鍒蜂负缁樺浘鎺т欢濉厖榛戣壊锛屽舰鎴愰粦鑹茶儗鏅?  
+	// 以黑色画刷为绘图控件填充黑色，形成黑色背景   
 	pDC.Rectangle(rectPicture);
-	// 鎭㈠鏃х敾鍒?  
+	// 恢复旧画刷   
 	pDC.SelectObject(pOldBrush);
-	// 鍒犻櫎鏂扮敾鍒?  
+	// 删除新画刷   
 	newBrush.DeleteObject();
 
-	// 鍒涘缓瀹炲績鐢荤瑪锛岀矖搴︿负1锛岄鑹蹭负缁胯壊   
+	// 创建实心画笔，粗度为1，颜色为绿色   
 	newPen.CreatePen(PS_SOLID, 1, RGB(255, 255, 255));
-	// 閫夋嫨鏂扮敾绗旓紝骞跺皢鏃х敾绗旂殑鎸囬拡淇濆瓨鍒皃OldPen   
+	// 选择新画笔，并将旧画笔的指针保存到pOldPen   
 	pOldPen = pDC.SelectObject(&newPen);
 
 
@@ -174,20 +174,20 @@ void CInstall::OnPaint()
 		pDC.MoveTo(i * (x / 12) + rectPicture.left, rectPicture.top);
 		pDC.LineTo(i * (x / 12) + rectPicture.left, y + rectPicture.top);
 	}
-	// 鎭㈠鏃х敾绗?  
+	// 恢复旧画笔   
 	pDC.SelectObject(pOldPen);
-	// 鍒犻櫎鏂扮敾绗?  
+	// 删除新画笔   
 	newPen.DeleteObject();
 
-	// 鍒涘缓榛勮壊鏂扮敾鍒?  
+	// 创建黄色新画刷   
 	newBrush.CreateSolidBrush(RGB(255, 255, 0));
-	// 閫夋嫨鏂扮敾鍒凤紝骞跺皢鏃х敾鍒风殑鎸囬拡淇濆瓨鍒皃OldBrush   
+	// 选择新画刷，并将旧画刷的指针保存到pOldBrush   
 	pOldBrush = pDC.SelectObject(&newBrush);
 
 	pDC.Rectangle(rectPicture.left, rectPicture.left, rectPicture.left + (x / 12), rectPicture.top + (y / 12));
 
-	// 鎭㈠鏃х敾鍒?  
+	// 恢复旧画刷   
 	pDC.SelectObject(pOldBrush);
-	// 鍒犻櫎鏂扮敾鍒?  
+	// 删除新画刷   
 	newBrush.DeleteObject();
 }
