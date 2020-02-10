@@ -72,6 +72,8 @@
 #define IDC_INSTALL_LIST                1077
 #define IDC_INSTALL_LIST1               1077
 #define IDC_PIC                         1078
+#define IDC_PIC2                        1079
+#define IDC_PIC1                        1079
 
 // Next default values for new objects
 // 

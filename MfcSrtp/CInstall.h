@@ -31,4 +31,5 @@ public:
 	afx_msg void OnBnClickedContinue2();
 	CStatic m_pic;
 	afx_msg void OnPaint();
+	CStatic m_pic1;
 };
