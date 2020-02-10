@@ -62,31 +62,6 @@ BOOL CInstall::OnInitDialog()
 
 	pDlg = this;//初始化该全局变量
 
-	/*
-
-	DWORD   dwStyle;
-	dwStyle = m_install_list1.GetExtendedStyle();
-	dwStyle |= LVS_EX_FULLROWSELECT;
-	dwStyle |= LVS_EX_GRIDLINES;
-	m_install_list1.SetExtendedStyle(dwStyle);
-
-	m_install_list1.InsertColumn(0, L" ", LVCFMT_LEFT, 20);
-	m_install_list1.InsertColumn(1, L" ", LVCFMT_LEFT, 20);
-	m_install_list1.InsertColumn(2, L" ", LVCFMT_LEFT, 20);
-	m_install_list1.InsertItem(0, L" ");
-	m_install_list1.SetItemText(0, 1, L" ");
-	m_install_list1.SetItemText(0, 2, L" ");
-	m_install_list1.InsertItem(1, L" ");
-	m_install_list1.SetItemText(1, 1, L" ");
-	m_install_list1.SetItemText(1, 2, L" ");
-	
-	m_install_list1.SetTextBkColor(RGB(255, 255, 0));
-	m_install_list1.SetBkColor(RGB(0, 0, 0));
-
-	*/
-
-
-
 	return TRUE;  // return TRUE unless you set the focus to a control
 				  // 异常: OCX 属性页应返回 FALSE
 }
@@ -115,54 +90,39 @@ void CInstall::OnBnClickedButton1()
 }
 
 
-//点击左边的 继续 按钮
-void CInstall::OnBnClickedContinue1()
-{
-	// TODO: 在此添加控件通知处理程序代码
-
-
-}
-
-
-//点击右边的 继续 按钮
-void CInstall::OnBnClickedContinue2()
-{
-	// TODO: 在此添加控件通知处理程序代码
-
-
-}
-
-
 void CInstall::OnPaint()
 {
-	CPen newPen;       // 用于创建新画笔   
-	CPen* pOldPen;     // 用于存放旧画笔   
-	CBrush newBrush;   // 用于创建新画刷   
-	CBrush* pOldBrush; // 用于存放旧画刷   
+	CPen newPen;       // 用于创建新画笔
+	CPen* pOldPen;     // 用于存放旧画笔
+	CBrush newBrush;   // 用于创建新画刷
+	CBrush* pOldBrush; // 用于存放旧画刷
 
-	CRect rectPicture;  // 图片控件的矩形区域坐标 
-	// 获取图片控件矩形区域的屏幕坐标   
+	CRect rectPicture;  // 图片控件的矩形区域坐标
+	// 获取图片控件矩形区域的屏幕坐标
 	m_pic.GetWindowRect(&rectPicture);
-	// 将图片控件矩形区域的屏幕坐标转换为其父窗口即对话框的客户区坐标   
+	// 将图片控件矩形区域的屏幕坐标转换为其父窗口即对话框的客户区坐标
 	ScreenToClient(&rectPicture);
 
-	// 创建黑色新画刷   
+	//填充黑色背景
+
+	// 创建黑色新画刷
 	newBrush.CreateSolidBrush(RGB(0, 0, 0));
 	CPaintDC pDC(this); // 用于绘制的设备上下文
-	// 选择新画刷，并将旧画刷的指针保存到pOldBrush   
+	// 选择新画刷，并将旧画刷的指针保存到pOldBrush
 	pOldBrush = pDC.SelectObject(&newBrush);
-	// 以黑色画刷为绘图控件填充黑色，形成黑色背景   
+	// 以黑色画刷为绘图控件填充黑色，形成黑色背景
 	pDC.Rectangle(rectPicture);
-	// 恢复旧画刷   
+	// 恢复旧画刷
 	pDC.SelectObject(pOldBrush);
-	// 删除新画刷   
+	// 删除新画刷
 	newBrush.DeleteObject();
 
-	// 创建实心画笔，粗度为1，颜色为绿色   
-	newPen.CreatePen(PS_SOLID, 1, RGB(255, 255, 255));
-	// 选择新画笔，并将旧画笔的指针保存到pOldPen   
-	pOldPen = pDC.SelectObject(&newPen);
+	//画白色网格线
 
+	// 创建实心画笔，粗度为1，颜色为绿色
+	newPen.CreatePen(PS_SOLID, 1, RGB(255, 255, 255));
+	// 选择新画笔，并将旧画笔的指针保存到pOldPen
+	pOldPen = pDC.SelectObject(&newPen);
 
 	int x = rectPicture.Width();
 	int y = rectPicture.Height();
@@ -174,21 +134,50 @@ void CInstall::OnPaint()
 		pDC.MoveTo(i * (x / 12) + rectPicture.left, rectPicture.top);
 		pDC.LineTo(i * (x / 12) + rectPicture.left, y + rectPicture.top);
 	}
-	// 恢复旧画笔   
+	// 恢复旧画笔
 	pDC.SelectObject(pOldPen);
-	// 删除新画笔   
+	// 删除新画笔
 	newPen.DeleteObject();
+}
 
-	// 创建黄色新画刷   
+//点击左边的 继续 按钮
+void CInstall::OnBnClickedContinue1()
+{
+	// TODO: 在此添加控件通知处理程序代码
+
+	CRect rectPicture;       // 图片控件的矩形区域坐标   
+	CBrush newBrush;         // 创建的新画刷   
+	CBrush* pOldBrush;       // 旧画刷的指针   
+	CClientDC pDC(this); // 构造客户区的设备上下文对象   
+
+	// 创建黄色新画刷
 	newBrush.CreateSolidBrush(RGB(255, 255, 0));
-	// 选择新画刷，并将旧画刷的指针保存到pOldBrush   
+
+	// 获取图片控件矩形区域的屏幕坐标   
+	m_pic.GetWindowRect(&rectPicture);
+	// 将图片控件矩形区域的屏幕坐标转换为其父窗口即对话框的客户区坐标   
+	ScreenToClient(&rectPicture);
+
+	// 选择新画刷，并保存旧画刷的指针到pOldBrush   
 	pOldBrush = pDC.SelectObject(&newBrush);
 
+	// 以新画刷为图片控件填充颜色   
+
+	int x = rectPicture.Width();
+	int y = rectPicture.Height();
 	pDC.Rectangle(rectPicture.left, rectPicture.top, rectPicture.left + (x / 12), rectPicture.top + (y / 12));
-//	pDC.Rectangle(0,0,20,20);
 
 	// 恢复旧画刷   
 	pDC.SelectObject(pOldBrush);
 	// 删除新画刷   
 	newBrush.DeleteObject();
+}
+
+
+//点击右边的 继续 按钮
+void CInstall::OnBnClickedContinue2()
+{
+	// TODO: 在此添加控件通知处理程序代码
+
+
 }
