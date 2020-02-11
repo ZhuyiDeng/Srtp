@@ -57,6 +57,9 @@
     <ClInclude Include="CQuantity.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="CAlter.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MfcSrtp.cpp">
@@ -90,6 +93,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="CQuantity.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CAlter.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

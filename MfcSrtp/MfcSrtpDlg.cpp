@@ -10,6 +10,8 @@
 #include "CSkManageDlg.h"
 #include "CInstall.h"
 #include "CQuantity.h"
+#include "CAlter.h"
+
 
 
 #ifdef _DEBUG
@@ -286,6 +288,11 @@ void CMfcSrtpDlg::OnBnClickedButton3()
 void CMfcSrtpDlg::OnBnClickedButton4()
 {
 	// TODO: 在此添加控件通知处理程序代码
+
+	//弹出修改效果图窗口
+	CAlter Dlg;
+	Dlg.DoModal();
+
 }
 
 // 马赛克用量的按钮

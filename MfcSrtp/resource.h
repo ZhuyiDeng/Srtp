@@ -15,6 +15,7 @@
 #define IDD_INSTALL1                    143
 #define IDD_INSTALL_TIP                 145
 #define IDD_QUANTITY                    147
+#define IDD_ALTER                       149
 #define IDC_BUTTON1                     1000
 #define IDC_BUTTON2                     1001
 #define IDC_BUTTON3                     1002
@@ -81,14 +82,24 @@
 #define IDC_COLOR1                      1081
 #define IDC_PIC_SHOW                    1081
 #define IDC_EDIT1                       1082
+#define IDC_ALTER_SHOW                  1083
+#define IDC_ALTER_TIP1                  1084
+#define IDC_ALTER_BUTTON1               1085
+#define IDC_ALTER_SHOW2                 1086
+#define IDC_ALTER_SHOW3                 1087
+#define IDC_ALTER_TIP2                  1088
+#define IDC_EDIT2                       1089
+#define IDC_ALTER_BUTTON2               1090
+#define IDC_ALTER_TIP3                  1091
+#define IDC_ALTER_TIP4                  1092
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        149
+#define _APS_NEXT_RESOURCE_VALUE        151
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1083
+#define _APS_NEXT_CONTROL_VALUE         1093
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

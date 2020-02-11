@@ -183,6 +183,7 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="CAlter.h" />
     <ClInclude Include="CInstall.h" />
     <ClInclude Include="CInstall1.h" />
     <ClInclude Include="CInstallTip.h" />
@@ -199,6 +200,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CAlter.cpp" />
     <ClCompile Include="CInstall.cpp" />
     <ClCompile Include="CInstall1.cpp" />
     <ClCompile Include="CInstallTip.cpp" />
