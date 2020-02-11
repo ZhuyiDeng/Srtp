@@ -58,6 +58,8 @@ BEGIN_MESSAGE_MAP(CInstall, CDialogEx)
 	ON_WM_NCHITTEST()
 	ON_WM_SETCURSOR()
 	ON_WM_NCLBUTTONDOWN()
+	ON_BN_CLICKED(IDC_BUTTON2, &CInstall::OnBnClickedButton2)
+	ON_BN_CLICKED(IDC_BUTTON4, &CInstall::OnBnClickedButton4)
 END_MESSAGE_MAP()
 
 
@@ -120,8 +122,6 @@ void CInstall::OnBnClickedContinue1()
 
 	//需要马赛克块处增亮处理
 
-	CPen newPen;       // 用于创建新画笔
-	CPen* pOldPen;     // 用于存放旧画笔
 	CBrush newBrush;   // 用于创建新画刷
 	CBrush* pOldBrush; // 用于存放旧画刷
 	CClientDC pDC(this);
@@ -132,42 +132,9 @@ void CInstall::OnBnClickedContinue1()
 	// 将图片控件矩形区域的屏幕坐标转换为其父窗口即对话框的客户区坐标
 	ScreenToClient(&rectPicture);
 
-	//填充黑色背景
-
-	// 创建黑色新画刷
-	newBrush.CreateSolidBrush(RGB(0, 0, 0));
-	// 选择新画刷，并将旧画刷的指针保存到pOldBrush
-	pOldBrush = pDC.SelectObject(&newBrush);
-	// 以黑色画刷为绘图控件填充黑色，形成黑色背景
-	pDC.Rectangle(rectPicture);
-	// 恢复旧画刷
-	pDC.SelectObject(pOldBrush);
-	// 删除新画刷
-	newBrush.DeleteObject();
-
-	//画白色网格线
-
-	// 创建实心画笔，粗度为1，颜色为绿色
-	newPen.CreatePen(PS_SOLID, 1, RGB(255, 255, 255));
-	// 选择新画笔，并将旧画笔的指针保存到pOldPen
-	pOldPen = pDC.SelectObject(&newPen);
-
 	//左边
 	int x = rectPicture.Width();
 	int y = rectPicture.Height();
-
-	for (int i = 1; i <= 12; i++) {
-		pDC.MoveTo(rectPicture.left, i * (y / 12) + rectPicture.top);
-		pDC.LineTo(x + rectPicture.left, i * (y / 12) + rectPicture.top);
-
-		pDC.MoveTo(i * (x / 12) + rectPicture.left, rectPicture.top);
-		pDC.LineTo(i * (x / 12) + rectPicture.left, y + rectPicture.top);
-	}
-
-	// 恢复旧画笔
-	pDC.SelectObject(pOldPen);
-	// 删除新画笔
-	newPen.DeleteObject();
 
 	//示例
 
@@ -204,8 +171,6 @@ void CInstall::OnBnClickedContinue2()
 
 	//需要马赛克块处增亮处理
 
-	CPen newPen;       // 用于创建新画笔
-	CPen* pOldPen;     // 用于存放旧画笔
 	CBrush newBrush;   // 用于创建新画刷
 	CBrush* pOldBrush; // 用于存放旧画刷
 	CClientDC pDC(this);
@@ -216,42 +181,9 @@ void CInstall::OnBnClickedContinue2()
 	// 将图片控件矩形区域的屏幕坐标转换为其父窗口即对话框的客户区坐标
 	ScreenToClient(&rectPicture1);
 
-	//填充黑色背景
-
-	// 创建黑色新画刷
-	newBrush.CreateSolidBrush(RGB(0, 0, 0));
-	// 选择新画刷，并将旧画刷的指针保存到pOldBrush
-	pOldBrush = pDC.SelectObject(&newBrush);
-	// 以黑色画刷为绘图控件填充黑色，形成黑色背景
-	pDC.Rectangle(rectPicture1);
-	// 恢复旧画刷
-	pDC.SelectObject(pOldBrush);
-	// 删除新画刷
-	newBrush.DeleteObject();
-
-	//画白色网格线
-
-	// 创建实心画笔，粗度为1，颜色为绿色
-	newPen.CreatePen(PS_SOLID, 1, RGB(255, 255, 255));
-	// 选择新画笔，并将旧画笔的指针保存到pOldPen
-	pOldPen = pDC.SelectObject(&newPen);
-
-	//右边
+	//左边
 	int x1 = rectPicture1.Width();
 	int y1 = rectPicture1.Height();
-
-	for (int i = 1; i <= 12; i++) {
-		pDC.MoveTo(rectPicture1.left, i * (y1 / 12) + rectPicture1.top);
-		pDC.LineTo(x1 + rectPicture1.left, i * (y1 / 12) + rectPicture1.top);
-
-		pDC.MoveTo(i * (x1 / 12) + rectPicture1.left, rectPicture1.top);
-		pDC.LineTo(i * (x1 / 12) + rectPicture1.left, y1 + rectPicture1.top);
-	}
-
-	// 恢复旧画笔
-	pDC.SelectObject(pOldPen);
-	// 删除新画笔
-	newPen.DeleteObject();
 
 	//示例
 
@@ -456,4 +388,116 @@ void CInstall::OnNcLButtonDown(UINT nHitTest, CPoint point)
 	default:
 		__super::OnNcLButtonDown(nHitTest, point);
 	}
+}
+
+
+//点击调整左边大小按钮
+void CInstall::OnBnClickedButton2()
+{
+	// TODO: 在此添加控件通知处理程序代码
+
+	CPen newPen;       // 用于创建新画笔
+	CPen* pOldPen;     // 用于存放旧画笔
+	CBrush newBrush;   // 用于创建新画刷
+	CBrush* pOldBrush; // 用于存放旧画刷
+	CClientDC pDC(this);
+
+	CRect rectPicture;  // 左边图片控件的矩形区域坐标
+	// 获取图片控件矩形区域的屏幕坐标
+	m_pic.GetWindowRect(&rectPicture);
+	// 将图片控件矩形区域的屏幕坐标转换为其父窗口即对话框的客户区坐标
+	ScreenToClient(&rectPicture);
+
+	//填充黑色背景
+
+	// 创建黑色新画刷
+	newBrush.CreateSolidBrush(RGB(0, 0, 0));
+	// 选择新画刷，并将旧画刷的指针保存到pOldBrush
+	pOldBrush = pDC.SelectObject(&newBrush);
+	// 以黑色画刷为绘图控件填充黑色，形成黑色背景
+	pDC.Rectangle(rectPicture);
+	// 恢复旧画刷
+	pDC.SelectObject(pOldBrush);
+	// 删除新画刷
+	newBrush.DeleteObject();
+
+	//画白色网格线
+
+	// 创建实心画笔，粗度为1，颜色为绿色
+	newPen.CreatePen(PS_SOLID, 1, RGB(255, 255, 255));
+	// 选择新画笔，并将旧画笔的指针保存到pOldPen
+	pOldPen = pDC.SelectObject(&newPen);
+
+	//左边
+	int x = rectPicture.Width();
+	int y = rectPicture.Height();
+
+	for (int i = 1; i <= 12; i++) {
+		pDC.MoveTo(rectPicture.left, i * (y / 12) + rectPicture.top);
+		pDC.LineTo(x + rectPicture.left, i * (y / 12) + rectPicture.top);
+
+		pDC.MoveTo(i * (x / 12) + rectPicture.left, rectPicture.top);
+		pDC.LineTo(i * (x / 12) + rectPicture.left, y + rectPicture.top);
+	}
+
+	// 恢复旧画笔
+	pDC.SelectObject(pOldPen);
+	// 删除新画笔
+	newPen.DeleteObject();
+}
+
+
+//点击调整右边大小按钮
+void CInstall::OnBnClickedButton4()
+{
+	// TODO: 在此添加控件通知处理程序代码
+
+	CPen newPen;       // 用于创建新画笔
+	CPen* pOldPen;     // 用于存放旧画笔
+	CBrush newBrush;   // 用于创建新画刷
+	CBrush* pOldBrush; // 用于存放旧画刷
+	CClientDC pDC(this);
+
+	CRect rectPicture1;  // 右边图片控件的矩形区域坐标
+	// 获取图片控件矩形区域的屏幕坐标
+	m_pic1.GetWindowRect(&rectPicture1);
+	// 将图片控件矩形区域的屏幕坐标转换为其父窗口即对话框的客户区坐标
+	ScreenToClient(&rectPicture1);
+
+	//填充黑色背景
+
+	// 创建黑色新画刷
+	newBrush.CreateSolidBrush(RGB(0, 0, 0));
+	// 选择新画刷，并将旧画刷的指针保存到pOldBrush
+	pOldBrush = pDC.SelectObject(&newBrush);
+	// 以黑色画刷为绘图控件填充黑色，形成黑色背景
+	pDC.Rectangle(rectPicture1);
+	// 恢复旧画刷
+	pDC.SelectObject(pOldBrush);
+	// 删除新画刷
+	newBrush.DeleteObject();
+
+	//画白色网格线
+
+	// 创建实心画笔，粗度为1，颜色为绿色
+	newPen.CreatePen(PS_SOLID, 1, RGB(255, 255, 255));
+	// 选择新画笔，并将旧画笔的指针保存到pOldPen
+	pOldPen = pDC.SelectObject(&newPen);
+
+	//右边
+	int x1 = rectPicture1.Width();
+	int y1 = rectPicture1.Height();
+
+	for (int i = 1; i <= 12; i++) {
+		pDC.MoveTo(rectPicture1.left, i * (y1 / 12) + rectPicture1.top);
+		pDC.LineTo(x1 + rectPicture1.left, i * (y1 / 12) + rectPicture1.top);
+
+		pDC.MoveTo(i * (x1 / 12) + rectPicture1.left, rectPicture1.top);
+		pDC.LineTo(i * (x1 / 12) + rectPicture1.left, y1 + rectPicture1.top);
+	}
+
+	// 恢复旧画笔
+	pDC.SelectObject(pOldPen);
+	// 删除新画笔
+	newPen.DeleteObject();
 }

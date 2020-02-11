@@ -51,16 +51,16 @@ void CQuantity::OnBnClickedButton5()
 }
 
 
-extern CString skName;
+//extern CString skName;
 
 //点击显示产品属性按钮
 void CQuantity::OnBnClickedButton3()
 {
 	// TODO: 在此添加控件通知处理程序代码
 
-	CEdit* cstring;
-	cstring = (CEdit*)GetDlgItem(IDC_EDIT1);
-	cstring->SetWindowText(skName);//将文件名称显示在控件中
+//	CEdit* cstring;
+//	cstring = (CEdit*)GetDlgItem(IDC_EDIT1);
+//	cstring->SetWindowText(skName);//将文件名称显示在控件中
 }
 
 

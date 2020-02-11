@@ -34,4 +34,6 @@ public:
 	afx_msg LRESULT OnNcHitTest(CPoint point);
 	afx_msg BOOL OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
 	afx_msg void OnNcLButtonDown(UINT nHitTest, CPoint point);
+	afx_msg void OnBnClickedButton2();
+	afx_msg void OnBnClickedButton4();
 };
