@@ -30,6 +30,8 @@ public:
 	afx_msg void OnBnClickedContinue1();
 	afx_msg void OnBnClickedContinue2();
 	CStatic m_pic;
-	afx_msg void OnPaint();
 	CStatic m_pic1;
+	afx_msg LRESULT OnNcHitTest(CPoint point);
+	afx_msg BOOL OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
+	afx_msg void OnNcLButtonDown(UINT nHitTest, CPoint point);
 };

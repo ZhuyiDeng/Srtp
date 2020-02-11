@@ -51,7 +51,7 @@ BOOL CInstallTip::OnInitDialog()
 	// TODO:  在此添加额外的初始化
 
 	//设置默认提示内容
-	m_install_tip.SetWindowTextW(_T("(1,1) 联马赛克准备好了吗？\n准备好了请按回车键或'是'继续"));
+	m_install_tip.SetWindowTextW(_T("马赛克准备好了吗？\r\n准备好了请按回车键或'是'继续"));
 
 	return TRUE;  // return TRUE unless you set the focus to a control
 				  // 异常: OCX 属性页应返回 FALSE
@@ -66,7 +66,6 @@ void CInstallTip::OnBnClickedButton2()
 	//点击 否 按钮 则继续弹出当前窗口
 	CInstallTip Dlg;
 	Dlg.DoModal();
-	
 }
 
 
@@ -87,46 +86,11 @@ BOOL CInstallTip::PreTranslateMessage(MSG* pMsg)
 
 
 //按下 是 按钮
-int tip_index = 0;//区分左边和右边的安装界面
-extern CInstall* pDlg;
 
 void CInstallTip::OnBnClickedButton1()
 {
 	// TODO: 在此添加控件通知处理程序代码
 
-	tip_index++;
-
-	if (tip_index == 1) {//第一次按
-
-		//显示联号
-		pDlg->SetDlgItemTextW(IDC_EDIT_A1, _T("(1,1)"));
-
-		//显示色号
-
-		//显示颜色
-
-		//显示数量
-
-		//需要马赛克块处增亮处理
-
-		//更改提示信息
-		m_install_tip.SetWindowTextW(_T("(1,2) 联马赛克准备好了吗？\n准备好了请按回车键或'是'继续"));
-
-	}
-	else if (tip_index == 2) {//第二次按
-
-		//显示联号
-		pDlg->SetDlgItemTextW(IDC_EDIT_B1, _T("(1,2)"));
-
-		//显示色号
-
-		//显示颜色
-
-		//显示数量
-
-		//需要马赛克块处增亮处理
-
-		//关闭当前窗口
-		CDialog::OnCancel();
-	}
+	//关闭当前窗口
+	CDialog::OnCancel();
 }

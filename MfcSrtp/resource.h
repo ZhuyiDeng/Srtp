@@ -72,8 +72,10 @@
 #define IDC_INSTALL_LIST                1077
 #define IDC_INSTALL_LIST1               1077
 #define IDC_PIC                         1078
-#define IDC_PIC2                        1079
 #define IDC_PIC1                        1079
+#define IDC_COLOR                       1080
+#define IDC_COLOR2                      1081
+#define IDC_COLOR1                      1081
 
 // Next default values for new objects
 // 
@@ -81,7 +83,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        147
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1079
+#define _APS_NEXT_CONTROL_VALUE         1081
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif
