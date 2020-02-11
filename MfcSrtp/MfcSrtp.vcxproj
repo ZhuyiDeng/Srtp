@@ -186,6 +186,7 @@
     <ClInclude Include="CInstall.h" />
     <ClInclude Include="CInstall1.h" />
     <ClInclude Include="CInstallTip.h" />
+    <ClInclude Include="CQuantity.h" />
     <ClInclude Include="CSet.h" />
     <ClInclude Include="CSet1.h" />
     <ClInclude Include="CSkManageDlg.h" />
@@ -201,6 +202,7 @@
     <ClCompile Include="CInstall.cpp" />
     <ClCompile Include="CInstall1.cpp" />
     <ClCompile Include="CInstallTip.cpp" />
+    <ClCompile Include="CQuantity.cpp" />
     <ClCompile Include="CSet.cpp" />
     <ClCompile Include="CSet1.cpp" />
     <ClCompile Include="CSkManageDlg.cpp" />

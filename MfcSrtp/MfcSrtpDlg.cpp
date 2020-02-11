@@ -9,6 +9,8 @@
 #include "CTip1.h"
 #include "CSkManageDlg.h"
 #include "CInstall.h"
+#include "CQuantity.h"
+
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -290,6 +292,10 @@ void CMfcSrtpDlg::OnBnClickedButton4()
 void CMfcSrtpDlg::OnBnClickedButton5()
 {
 	// TODO: 在此添加控件通知处理程序代码
+
+	//弹出马赛克用量表窗口
+	CQuantity Dlg;
+	Dlg.DoModal();
 }
 
 // 安装马赛克的按钮
